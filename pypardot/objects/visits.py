@@ -27,7 +27,7 @@ class Visits(object):
         (no spaces).
         """
         kwargs['visitor_ids'] = visitor_ids.replace(' ', '')
-        response = self._get(path='/do/query', params=kwargs)
+        response = self._get(path='/do/query?format=json', params=kwargs)
 
         # Ensure result['visit'] is a list, no matter what.
         result = response.get('result')
