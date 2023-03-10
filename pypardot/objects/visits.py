@@ -28,6 +28,8 @@ class Visits(object):
         """
         kwargs['visitor_ids'] = visitor_ids.replace(' ', '')
         response = self._get(path='/do/query?format=json', params=kwargs)
+        if isinstance(response, int):
+            return
 
         # Ensure result['visit'] is a list, no matter what.
         result = response.get('result')
